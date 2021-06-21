@@ -272,6 +272,9 @@ function App() {
                   <div className="Score">
                       <h4>Score: {score}</h4>
                   </div>
+                  <div className="HighScore">
+                    <h4>Current High Score: {highScore}</h4>
+                  </div>
                 </div>;
       break;
     case "Lose":
@@ -293,9 +296,6 @@ function App() {
         <p>Made by Jason Mannin / KryllYGO <br /> <br />
         This is a purely educational project. <br />
         Not affiliated with Pokémon in any way.</p>
-      </div>
-      <div className="HighScore">
-        <h4>Current High Score: {highScore}</h4>
       </div>
     </div>
   );
