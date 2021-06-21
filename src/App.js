@@ -10,8 +10,8 @@ function App() {
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
   const randomPokemonOne = Math.floor(Math.random() * 898) + 1;
   const randomPokemonTwo = Math.floor(Math.random() * 898) + 1;
-  const stat = "";
-  const randomStat = Math.floor(Math.random() * 7);
+  let stat = "";
+  const randomStat = Math.floor(Math.random() * 6);
 
   useEffect(() => {
     axios.get(pokemonURL + randomPokemonOne).then(res => {
@@ -41,18 +41,46 @@ function App() {
     })
   }, []);
 
+  switch(randomStat) {
+    case 0:
+      stat = "HP";
+      break;
+    case 1:
+      stat = "Attack";
+      break;
+    case 2:
+      stat = "Defence";
+      break;
+    case 3:
+      stat = "Special Attack";
+      break;
+    case 4:
+      stat = "Special Defence";
+      break;
+    case 5:
+      stat = "Speed";
+      break;
+    default:
+      stat = "";
+  }
+
   return (
     <div>
       <h1>Who's STAT Pokémon?!</h1>
       <div className="stat">
         <h3>Which of these two Pokémon has the higher:</h3>
+        <h2>{stat}</h2>
       </div>
       <div className='Pokemon_Cards'>
         <div className='Pokemon_One'>
-          <PokemonOne pokemonOne={pokemonOne} />
+          <button className="Pokemon_One_Button">
+            <PokemonOne pokemonOne={pokemonOne} />
+          </button>
         </div>
         <div className='Pokemon_Two'>
-          <PokemonTwo pokemonTwo={pokemonTwo} />
+          <button className="Pokemon_Two_Button">
+            <PokemonTwo pokemonTwo={pokemonTwo} />
+          </button>
         </div>
       </div>
     </div>
