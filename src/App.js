@@ -8,8 +8,9 @@ function App() {
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
-  const randomPokemonOne = Math.floor(Math.random() * 899);
-  const randomPokemonTwo = Math.floor(Math.random() * 899);
+  const randomPokemonOne = Math.floor(Math.random() * 898) + 1;
+  const randomPokemonTwo = Math.floor(Math.random() * 898) + 1;
+  const stat = "";
   const randomStat = Math.floor(Math.random() * 7);
 
   useEffect(() => {
@@ -42,7 +43,10 @@ function App() {
 
   return (
     <div>
-      <h1>Whose STAT Pokemon?!</h1>
+      <h1>Who's STAT Pokémon?!</h1>
+      <div className="stat">
+        <h3>Which of these two Pokémon has the higher:</h3>
+      </div>
       <div className='Pokemon_Cards'>
         <div className='Pokemon_One'>
           <PokemonOne pokemonOne={pokemonOne} />
