@@ -5,6 +5,7 @@ import PokemonOne from './Components/PokemonOne';
 import PokemonTwo from './Components/PokemonTwo';
 
 function App() {
+  const [score, setScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
@@ -66,7 +67,9 @@ function App() {
 
   return (
     <div>
-      <h1>Who's STAT Pokémon?!</h1>
+      <div className="header">
+        <h1>Who's STAT Pokémon?!</h1>
+      </div>
       <div className="stat">
         <h3>Which of these two Pokémon has the higher:</h3>
         <h2>{stat}</h2>
@@ -82,6 +85,9 @@ function App() {
             <PokemonTwo pokemonTwo={pokemonTwo} />
           </button>
         </div>
+      </div>
+      <div className="Score">
+          <h4>Score: {score}</h4>
       </div>
       <div className="Credits">
         <p>Made by Jason Mannin / KryllYGO <br /> <br />
