@@ -83,6 +83,11 @@ function App() {
           </button>
         </div>
       </div>
+      <div className="Credits">
+        <p>Made by Jason Mannin / KryllYGO <br /> <br />
+        This is a purely educational project. <br />
+        Not affiliated with Pokémon in any way.</p>
+      </div>
     </div>
   );
 }

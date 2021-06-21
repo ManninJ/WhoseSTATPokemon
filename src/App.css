@@ -45,7 +45,7 @@ html {
 body {
   height: 100%;
   padding: 0% 5% 0% 5%;
-  background-image: url("./images/BG2.png");
+  background-image: url("./images/BG3.png");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -142,4 +142,17 @@ h3 {
   font-size: 2rem;
   font-weight: 400;
   color: rgb(255, 255, 255);
+}
+
+.Credits {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding-top: 15px;
 }
