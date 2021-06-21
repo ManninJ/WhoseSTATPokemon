@@ -3,9 +3,12 @@ import axios from 'axios';
 import './App.css';
 import PokemonOne from './Components/PokemonOne';
 import PokemonTwo from './Components/PokemonTwo';
+import StartScreen from './Components/StartScreen';
 
 function App() {
+  const [inGame, setInGame] = useState("Start");
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
@@ -13,6 +16,8 @@ function App() {
   const randomPokemonTwo = Math.floor(Math.random() * 898) + 1;
   let stat = "";
   const randomStat = Math.floor(Math.random() * 6);
+
+  let gameDiv = null;
 
   useEffect(() => {
     axios.get(pokemonURL + randomPokemonOne).then(res => {
@@ -65,13 +70,21 @@ function App() {
       stat = "";
   };
 
-  function handleClick(stat) {
+  function buttonOneClick(stat) {
     switch(stat) {
       case "HP":
-        
+        if (pokemonOne.hp > pokemonTwo.hp) {
+          setScore(score + 1);
+        } else if (pokemonOne.hp < pokemonTwo.hp){
+          setScore(0);
+        } else {
+          setScore(score);
+        }
         break;
       case "Attack":
-
+        if (pokemonOne.attack >= pokemonTwo.attack) {
+          setScore(score + 1);
+        }
         break;
       case "Defence":
 
@@ -90,28 +103,50 @@ function App() {
     };
   }
 
+  switch(inGame) {
+    case "Start":
+      gameDiv = <div>
+                  <StartScreen highScore={highScore} />
+                </div>
+      break;
+    case "Yes":
+      gameDiv = <div>
+                  <div className="stat">
+                    <h3>Which of these two Pokémon has the higher:</h3>
+                    <h2>{stat}</h2>
+                  </div>
+                  <div className='Pokemon_Cards'>
+                    <div className='Pokemon_One'>
+                      <PokemonOne pokemonOne={pokemonOne}
+                                  buttonOneClick={buttonOneClick} />
+                    </div>
+                    <div className='Pokemon_Two'>
+                      <PokemonTwo pokemonTwo={pokemonTwo}
+                                  /*handleClick={handleClick}*/ />
+                    </div>
+                  </div>
+                  <div className="Score">
+                      <h4>Score: {score}</h4>
+                  </div>
+                </div>;
+      break;
+    case "Lose":
+      return (
+        <div>
+          <div className="header">
+            <h1>Who's STAT Pokémon?!</h1>
+          </div>
+        </div>
+      );
+      break;
+  }
+
   return (
     <div>
       <div className="header">
         <h1>Who's STAT Pokémon?!</h1>
       </div>
-      <div className="stat">
-        <h3>Which of these two Pokémon has the higher:</h3>
-        <h2>{stat}</h2>
-      </div>
-      <div className='Pokemon_Cards'>
-        <div className='Pokemon_One'>
-          <PokemonOne pokemonOne={pokemonOne}
-                      handleClick={handleClick} />
-        </div>
-        <div className='Pokemon_Two'>
-          <PokemonTwo pokemonTwo={pokemonTwo}
-                      handleClick={handleClick} />
-        </div>
-      </div>
-      <div className="Score">
-          <h4>Score: {score}</h4>
-      </div>
+      {gameDiv}
       <div className="Credits">
         <p>Made by Jason Mannin / KryllYGO <br /> <br />
         This is a purely educational project. <br />

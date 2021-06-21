@@ -1,14 +1,16 @@
 import React from 'react'
 
-export default function PokemonTwo({ pokemonTwo }) {
+export default function PokemonTwo({ pokemonTwo, handleClick }) {
     return (
-        <div className="PokemonTwo">
-            <div className="Card_Name">
-                {pokemonTwo.name}
+        <button className="Pokemon_Two_Button" onClick={handleClick}>
+            <div className="PokemonTwo">
+                <div className="Card_Name">
+                    {pokemonTwo.name}
+                </div>
+                <div className="Card_Image">
+                    <img src={pokemonTwo.sprite} alt="" width="400px"/>
+                </div>
             </div>
-            <div className="Card_Image">
-                <img src={pokemonTwo.sprite} alt="" width="400px"/>
-            </div>
-        </div>
+        </button>
     )
 }
