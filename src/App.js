@@ -8,7 +8,7 @@ import StartScreen from './Components/StartScreen';
 function App() {
   const [inGame, setInGame] = useState("Start");
   const [score, setScore] = useState(0);
-  const [tie, setTie] = useState(false);
+  const [tie, setTie] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
@@ -81,66 +81,78 @@ function App() {
         if (pokemonOne.hp > pokemonTwo.hp) {
           setScore(score + 1);
         } else if (pokemonOne.hp < pokemonTwo.hp){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Attack":
         if (pokemonOne.attack > pokemonTwo.attack) {
           setScore(score + 1);
         } else if (pokemonOne.attack < pokemonTwo.attack){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Defence":
         if (pokemonOne.defence > pokemonTwo.defence) {
           setScore(score + 1);
         } else if (pokemonOne.defence < pokemonTwo.defence){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Special Attack":
         if (pokemonOne.specialAttack > pokemonTwo.specialAttack) {
           setScore(score + 1);
         } else if (pokemonOne.specialAttack < pokemonTwo.specialAttack){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Special Defence":
         if (pokemonOne.specialDefence > pokemonTwo.specialDefence) {
           setScore(score + 1);
         } else if (pokemonOne.specialDefence < pokemonTwo.specialDefence){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Speed":
         if (pokemonOne.speed > pokemonTwo.speed) {
           setScore(score + 1);
         } else if (pokemonOne.speed < pokemonTwo.speed){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       default:
@@ -154,66 +166,78 @@ function App() {
         if (pokemonTwo.hp > pokemonOne.hp) {
           setScore(score + 1);
         } else if (pokemonTwo.hp < pokemonOne.hp){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Attack":
         if (pokemonTwo.attack > pokemonOne.attack) {
           setScore(score + 1);
         } else if (pokemonTwo.attack < pokemonOne.attack){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Defence":
         if (pokemonTwo.defence > pokemonOne.defence) {
           setScore(score + 1);
         } else if (pokemonTwo.defence < pokemonOne.defence){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Special Attack":
         if (pokemonTwo.specialAttack > pokemonOne.specialAttack) {
           setScore(score + 1);
         } else if (pokemonTwo.specialAttack < pokemonOne.specialAttack){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Special Defence":
         if (pokemonTwo.specialDefence > pokemonOne.specialDefence) {
           setScore(score + 1);
         } else if (pokemonTwo.specialDefence < pokemonOne.specialDefence){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       case "Speed":
         if (pokemonTwo.speed > pokemonOne.speed) {
           setScore(score + 1);
         } else if (pokemonTwo.speed < pokemonOne.speed){
+          if (score > highScore) {
+            setHighScore(score);
+          }
           setScore(0);
           setInGame("Start");
         } else {
-          setTie(true);
-          setTie(false);
+          setTie(tie + 1);
         }
         break;
       default:
@@ -269,6 +293,9 @@ function App() {
         <p>Made by Jason Mannin / KryllYGO <br /> <br />
         This is a purely educational project. <br />
         Not affiliated with Pokémon in any way.</p>
+      </div>
+      <div className="HighScore">
+        <h4>Current High Score: {highScore}</h4>
       </div>
     </div>
   );

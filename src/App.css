@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+  position: relative;
   height: 100%;
+  width: 100%;
 }
 
 .App-logo {
@@ -158,6 +160,7 @@ h3 {
 }
 
 .Credits {
+  display: flex;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -168,4 +171,10 @@ h3 {
   justify-content: center;
   align-content: center;
   padding-top: 15px;
+}
+
+.HighScore {
+  position: absolute;
+  bottom: 0px;
+  right: 40px;
 }
