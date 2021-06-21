@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -35,4 +36,71 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 0 5% 10% 5%;
+  background-image: url("./images/BG.png");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+
+.Pokemon_Cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.Pokemon_One {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  padding: 10px 5px 0px 5px;
+  margin: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.6), rgba(143,118,255,0.4));
+  transition: background-image ;
+}
+
+.Pokemon_One:hover {
+  background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.9), rgba(143,118,255,0.7));
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.Pokemon_Two {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  padding: 10px 5px 0px 5px;
+  margin: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.6), rgba(143,118,255,0.4));
+}
+
+.Pokemon_Two:hover {
+  background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.9), rgba(143,118,255,0.7));
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+h1 {
+  padding: .99rem 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 5rem;
+  font-weight: 200;
+  color: rgb(255, 255, 255);
 }

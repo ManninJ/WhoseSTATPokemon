@@ -7,7 +7,7 @@ export default function PokemonTwo({ pokemonTwo }) {
                 {pokemonTwo.name}
             </div>
             <div className="Card_Image">
-                <img src={pokemonTwo.sprite} alt="" />
+                <img src={pokemonTwo.sprite} alt="" width="400px"/>
             </div>
         </div>
     )

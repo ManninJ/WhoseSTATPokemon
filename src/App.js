@@ -10,6 +10,7 @@ function App() {
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
   const randomPokemonOne = Math.floor(Math.random() * 899);
   const randomPokemonTwo = Math.floor(Math.random() * 899);
+  const randomStat = Math.floor(Math.random() * 7);
 
   useEffect(() => {
     axios.get(pokemonURL + randomPokemonOne).then(res => {
@@ -40,9 +41,16 @@ function App() {
   }, []);
 
   return (
-    <div className='Pokemon_Cards'>
-      <PokemonOne pokemonOne={pokemonOne} />
-      <PokemonTwo pokemonTwo={pokemonTwo} />
+    <div>
+      <h1>Whose STAT Pokemon?!</h1>
+      <div className='Pokemon_Cards'>
+        <div className='Pokemon_One'>
+          <PokemonOne pokemonOne={pokemonOne} />
+        </div>
+        <div className='Pokemon_Two'>
+          <PokemonTwo pokemonTwo={pokemonTwo} />
+        </div>
+      </div>
     </div>
   );
 }
