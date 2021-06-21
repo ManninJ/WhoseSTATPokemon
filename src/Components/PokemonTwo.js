@@ -1,9 +1,14 @@
 import React from 'react'
 
-export default function PokemonTwo() {
+export default function PokemonTwo({ pokemonTwo }) {
     return (
-        <div>
-            
+        <div className="PokemonTwo">
+            <div className="Card_Name">
+                {pokemonTwo.name}
+            </div>
+            <div className="Card_Image">
+                <img src={pokemonTwo.sprite} alt="" />
+            </div>
         </div>
     )
 }
