@@ -40,7 +40,7 @@ function App() {
         speed: res.data.stats[5].base_stat
       });
     })
-  }, []);
+  }, [score]);
 
   switch(randomStat) {
     case 0:
@@ -63,6 +63,31 @@ function App() {
       break;
     default:
       stat = "";
+  };
+
+  function handleClick(stat) {
+    switch(stat) {
+      case "HP":
+        
+        break;
+      case "Attack":
+
+        break;
+      case "Defence":
+
+        break;
+      case "Special Attack":
+
+        break;
+      case "Special Defence":
+  
+        break;
+      case "Speed":
+  
+        break;
+      default:
+        return;
+    };
   }
 
   return (
@@ -76,14 +101,12 @@ function App() {
       </div>
       <div className='Pokemon_Cards'>
         <div className='Pokemon_One'>
-          <button className="Pokemon_One_Button">
-            <PokemonOne pokemonOne={pokemonOne} />
-          </button>
+          <PokemonOne pokemonOne={pokemonOne}
+                      handleClick={handleClick} />
         </div>
         <div className='Pokemon_Two'>
-          <button className="Pokemon_Two_Button">
-            <PokemonTwo pokemonTwo={pokemonTwo} />
-          </button>
+          <PokemonTwo pokemonTwo={pokemonTwo}
+                      handleClick={handleClick} />
         </div>
       </div>
       <div className="Score">
