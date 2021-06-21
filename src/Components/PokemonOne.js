@@ -3,6 +3,7 @@ import React from 'react'
 export default function PokemonOne({ pokemonOne, buttonOneClick }) {
     return (
         <button className="Pokemon_One_Button" onClick={buttonOneClick}>
+            {console.log("button clicked")}
             <div className="PokemonOne">
                 <div className="Card_Name">
                     {pokemonOne.name}

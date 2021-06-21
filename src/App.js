@@ -8,6 +8,7 @@ import StartScreen from './Components/StartScreen';
 function App() {
   const [inGame, setInGame] = useState("Start");
   const [score, setScore] = useState(0);
+  const [tie, setTie] = useState(false);
   const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
@@ -45,7 +46,7 @@ function App() {
         speed: res.data.stats[5].base_stat
       });
     })
-  }, [score]);
+  }, [inGame, score, tie]);
 
   switch(randomStat) {
     case 0:
@@ -70,33 +71,150 @@ function App() {
       stat = "";
   };
 
-  function buttonOneClick(stat) {
+  function onStartClick() {
+    setInGame("Yes");
+  }
+
+  function buttonOneClick() {
     switch(stat) {
       case "HP":
         if (pokemonOne.hp > pokemonTwo.hp) {
           setScore(score + 1);
         } else if (pokemonOne.hp < pokemonTwo.hp){
           setScore(0);
+          setInGame("Start");
         } else {
-          setScore(score);
+          setTie(true);
+          setTie(false);
         }
         break;
       case "Attack":
-        if (pokemonOne.attack >= pokemonTwo.attack) {
+        if (pokemonOne.attack > pokemonTwo.attack) {
           setScore(score + 1);
+        } else if (pokemonOne.attack < pokemonTwo.attack){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
         }
         break;
       case "Defence":
-
+        if (pokemonOne.defence > pokemonTwo.defence) {
+          setScore(score + 1);
+        } else if (pokemonOne.defence < pokemonTwo.defence){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
         break;
       case "Special Attack":
-
+        if (pokemonOne.specialAttack > pokemonTwo.specialAttack) {
+          setScore(score + 1);
+        } else if (pokemonOne.specialAttack < pokemonTwo.specialAttack){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
         break;
       case "Special Defence":
-  
+        if (pokemonOne.specialDefence > pokemonTwo.specialDefence) {
+          setScore(score + 1);
+        } else if (pokemonOne.specialDefence < pokemonTwo.specialDefence){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
         break;
       case "Speed":
-  
+        if (pokemonOne.speed > pokemonTwo.speed) {
+          setScore(score + 1);
+        } else if (pokemonOne.speed < pokemonTwo.speed){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      default:
+        return;
+    };
+  }
+
+  function buttonTwoClick() {
+    switch(stat) {
+      case "HP":
+        if (pokemonTwo.hp > pokemonOne.hp) {
+          setScore(score + 1);
+        } else if (pokemonTwo.hp < pokemonOne.hp){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      case "Attack":
+        if (pokemonTwo.attack > pokemonOne.attack) {
+          setScore(score + 1);
+        } else if (pokemonTwo.attack < pokemonOne.attack){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      case "Defence":
+        if (pokemonTwo.defence > pokemonOne.defence) {
+          setScore(score + 1);
+        } else if (pokemonTwo.defence < pokemonOne.defence){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      case "Special Attack":
+        if (pokemonTwo.specialAttack > pokemonOne.specialAttack) {
+          setScore(score + 1);
+        } else if (pokemonTwo.specialAttack < pokemonOne.specialAttack){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      case "Special Defence":
+        if (pokemonTwo.specialDefence > pokemonOne.specialDefence) {
+          setScore(score + 1);
+        } else if (pokemonTwo.specialDefence < pokemonOne.specialDefence){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
+        break;
+      case "Speed":
+        if (pokemonTwo.speed > pokemonOne.speed) {
+          setScore(score + 1);
+        } else if (pokemonTwo.speed < pokemonOne.speed){
+          setScore(0);
+          setInGame("Start");
+        } else {
+          setTie(true);
+          setTie(false);
+        }
         break;
       default:
         return;
@@ -106,7 +224,8 @@ function App() {
   switch(inGame) {
     case "Start":
       gameDiv = <div>
-                  <StartScreen highScore={highScore} />
+                  <StartScreen highScore={highScore}
+                               onStartClick={onStartClick} />
                 </div>
       break;
     case "Yes":
@@ -118,11 +237,12 @@ function App() {
                   <div className='Pokemon_Cards'>
                     <div className='Pokemon_One'>
                       <PokemonOne pokemonOne={pokemonOne}
-                                  buttonOneClick={buttonOneClick} />
+                                  buttonOneClick={buttonOneClick}
+                                  stat={stat} />
                     </div>
                     <div className='Pokemon_Two'>
                       <PokemonTwo pokemonTwo={pokemonTwo}
-                                  /*handleClick={handleClick}*/ />
+                                  buttonTwoClick={buttonTwoClick} />
                     </div>
                   </div>
                   <div className="Score">
@@ -133,9 +253,7 @@ function App() {
     case "Lose":
       return (
         <div>
-          <div className="header">
-            <h1>Who's STAT Pokémon?!</h1>
-          </div>
+          
         </div>
       );
       break;

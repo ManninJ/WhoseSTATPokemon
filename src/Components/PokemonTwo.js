@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function PokemonTwo({ pokemonTwo, handleClick }) {
+export default function PokemonTwo({ pokemonTwo, buttonTwoClick }) {
     return (
-        <button className="Pokemon_Two_Button" onClick={handleClick}>
+        <button className="Pokemon_Two_Button" onClick={buttonTwoClick}>
             <div className="PokemonTwo">
                 <div className="Card_Name">
                     {pokemonTwo.name}
