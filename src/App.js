@@ -4,10 +4,12 @@ import './App.css';
 import PokemonOne from './Components/PokemonOne';
 import PokemonTwo from './Components/PokemonTwo';
 import StartScreen from './Components/StartScreen';
+import LoseScreen from './Components/LoseScreen';
 
 function App() {
   const [inGame, setInGame] = useState("Start");
   const [score, setScore] = useState(0);
+  const [prevScore, setPrevScore] = useState(0);
   const [tie, setTie] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
@@ -75,6 +77,10 @@ function App() {
     setInGame("Yes");
   }
 
+  function onHomeClick() {
+    setInGame("Start");
+  }
+
   function buttonOneClick() {
     switch(stat) {
       case "HP":
@@ -84,8 +90,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -97,8 +104,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -110,8 +118,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -123,8 +132,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -136,8 +146,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -149,8 +160,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -169,8 +181,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -182,8 +195,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -195,8 +209,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -208,8 +223,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -221,8 +237,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -234,8 +251,9 @@ function App() {
           if (score > highScore) {
             setHighScore(score);
           }
+          setPrevScore(score);
           setScore(0);
-          setInGame("Start");
+          setInGame("Lose");
         } else {
           setTie(tie + 1);
         }
@@ -278,11 +296,12 @@ function App() {
                 </div>;
       break;
     case "Lose":
-      return (
-        <div>
-          
-        </div>
-      );
+        gameDiv = <div>
+                    <LoseScreen prevScore={prevScore}
+                                highScore={highScore}
+                                onStartClick={onStartClick}
+                                onHomeClick={onHomeClick} />
+                  </div>;
       break;
   }
 

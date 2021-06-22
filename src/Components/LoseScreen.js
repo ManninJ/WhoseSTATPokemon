@@ -1,12 +1,16 @@
 import React from 'react';
 import './LoseScreen.css';
 
-export default function LoseScreen({ score, highScore, onStartClick }) {
+export default function LoseScreen({ prevScore, highScore, onStartClick, onHomeClick }) {
     return (
         <div className="LoseScreen">
-            {<h3>Unfortunate</h3>}
-            <h3>Click Start to begin...</h3>
-            <button className="StartButton" onClick={onStartClick}>Start</button>
+            <h3>Your score is:</h3>
+            <h2>{prevScore}</h2>
+            <h3>Click Start to begin or Home to return Home...</h3>
+            <div className="Buttons">
+                <button className="StartButton" onClick={onStartClick}>Start</button>
+                <button className="HomeButton" onClick={onHomeClick}>Home</button>
+            </div>
             <h4>Current High Score: {highScore}</h4>
         </div>
     )
