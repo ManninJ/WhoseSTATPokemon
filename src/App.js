@@ -12,6 +12,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [prevScore, setPrevScore] = useState(0);
   const [tie, setTie] = useState(0);
+  const [beatHighScore, setBeatHighScore] = useState(false);
   const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
@@ -104,7 +105,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.hp < pokemonTwo.hp){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -118,7 +122,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.attack < pokemonTwo.attack){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -132,7 +139,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.defence < pokemonTwo.defence){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -146,7 +156,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.specialAttack < pokemonTwo.specialAttack){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -160,7 +173,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.specialDefence < pokemonTwo.specialDefence){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -174,7 +190,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonOne.speed < pokemonTwo.speed){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -195,7 +214,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.hp < pokemonOne.hp){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -209,7 +231,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.attack < pokemonOne.attack){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -223,7 +248,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.defence < pokemonOne.defence){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -237,7 +265,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.specialAttack < pokemonOne.specialAttack){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -251,7 +282,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.specialDefence < pokemonOne.specialDefence){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -265,7 +299,10 @@ function App() {
           setScore(score + 1);
         } else if (pokemonTwo.speed < pokemonOne.speed){
           if (score > highScore) {
+            setBeatHighScore(true);
             setHighScore(score);
+          } else if (score < highScore) {
+            setBeatHighScore(false);
           }
           setPrevScore(score);
           setScore(0);
@@ -315,6 +352,7 @@ function App() {
         gameDiv = <div>
                     <LoseScreen prevScore={prevScore}
                                 highScore={highScore}
+                                beatHighScore={beatHighScore}
                                 onStartClick={onStartClick}
                                 onHomeClick={onHomeClick} />
                   </div>;
