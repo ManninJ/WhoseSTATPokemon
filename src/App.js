@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import AnimatedNumber from 'react-animated-number';
 import './App.css';
 import PokemonOne from './Components/PokemonOne';
 import PokemonTwo from './Components/PokemonTwo';
@@ -14,10 +15,13 @@ function App() {
   const [highScore, setHighScore] = useState(0);
   const [pokemonOne, setPokemonOne] = useState({});
   const [pokemonTwo, setPokemonTwo] = useState({});
+  const [showStatOne, setShowStatOne] = useState(false);
   const pokemonURL = 'https://pokeapi.co/api/v2/pokemon/';
   const randomPokemonOne = Math.floor(Math.random() * 898) + 1;
   const randomPokemonTwo = Math.floor(Math.random() * 898) + 1;
   let stat = "";
+  let pokemonOneStat = null;
+  let pokemonTwoStat = null;
   const randomStat = Math.floor(Math.random() * 6);
 
   let gameDiv = null;
@@ -53,21 +57,33 @@ function App() {
   switch(randomStat) {
     case 0:
       stat = "HP";
+      pokemonOneStat = pokemonOne.hp;
+      pokemonTwoStat = pokemonTwo.hp;
       break;
     case 1:
       stat = "Attack";
+      pokemonOneStat = pokemonOne.attack;
+      pokemonTwoStat = pokemonTwo.attack;
       break;
     case 2:
       stat = "Defence";
+      pokemonOneStat = pokemonOne.defence;
+      pokemonTwoStat = pokemonTwo.defence;
       break;
     case 3:
       stat = "Special Attack";
+      pokemonOneStat = pokemonOne.specialAttack;
+      pokemonTwoStat = pokemonTwo.specialAttack;
       break;
     case 4:
       stat = "Special Defence";
+      pokemonOneStat = pokemonOne.specialDefence;
+      pokemonTwoStat = pokemonTwo.specialDefence;
       break;
     case 5:
       stat = "Speed";
+      pokemonOneStat = pokemonOne.speed;
+      pokemonTwoStat = pokemonTwo.speed;
       break;
     default:
       stat = "";
@@ -280,7 +296,7 @@ function App() {
                     <div className='Pokemon_One'>
                       <PokemonOne pokemonOne={pokemonOne}
                                   buttonOneClick={buttonOneClick}
-                                  stat={stat} />
+                                  pokemonOneStat={pokemonOneStat} />
                     </div>
                     <div className='Pokemon_Two'>
                       <PokemonTwo pokemonTwo={pokemonTwo}

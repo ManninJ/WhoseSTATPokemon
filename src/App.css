@@ -75,6 +75,11 @@ body {
 }
 
 .Pokemon_One {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   padding: 10px 5px 0px 5px;
   margin: 10px;
   border-radius: 10px;
@@ -90,16 +95,30 @@ body {
 }
 
 .Pokemon_One_Button {
+  position: relative;
+  display: flex;
   cursor: pointer;
   height: 100%;
   border: none;
   background-color: transparent;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   text-transform: capitalize;
   font-family: 'Poppins', sans-serif;
   color: white;
   font-size: 3rem;
   font-weight: 500;
+}
+
+.Stat {
+  cursor: pointer;
+  font-size: 200px;
+  z-index: 100;
+  position: absolute;
+  background-color: transparent;
+  border: transparent;
+  color: white;
 }
 
 .Pokemon_Two {
