@@ -1,7 +1,7 @@
-import React from 'react'
-import AnimatedNumber from 'react-animated-number';
+import React from 'react';
+import './PokemonOne.css';
 
-export default function PokemonOne({ pokemonOne, pokemonOneStat, buttonOneClick }) {
+export default function PokemonOne({ pokemonOne, pokemonOneStat, showStatOne, buttonOneClick }) {
     return (
         <button className="Pokemon_One_Button" onClick={buttonOneClick}>
             <div className="PokemonOne">
@@ -12,7 +12,9 @@ export default function PokemonOne({ pokemonOne, pokemonOneStat, buttonOneClick 
                     <div className="Card_Image">
                         <img src={pokemonOne.sprite} alt="" width="400px"/>
                     </div>
-                    
+                    <div className="Stat_Total">
+                        {"?"}
+                    </div>
                 </div>
             </div>
         </button>
