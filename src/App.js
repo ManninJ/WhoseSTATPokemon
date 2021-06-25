@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import PokemonOne from './Components/PokemonOne';
+import PokemonOneResult from './Components/PokemonOneResult';
 import PokemonTwo from './Components/PokemonTwo';
+import PokemonTwoResult from './Components/PokemonTwoResult';
 import StartScreen from './Components/StartScreen';
 import LoseScreen from './Components/LoseScreen';
 
 function App() {
-  const [inGame, setInGame] = useState("Start");
+  const [inGame, setInGame] = useState("No");
+  const [page, setPage] = useState("Start");
   const [score, setScore] = useState(0);
   const [prevScore, setPrevScore] = useState(0);
   const [tie, setTie] = useState(0);
@@ -56,7 +59,7 @@ function App() {
     })
 
     setRandomStat(Math.floor(Math.random() * 6));
-  }, [score, inGame, tie]);
+  }, [inGame, score, tie]);
 
   switch(randomStat) {
     case 0:
@@ -94,239 +97,70 @@ function App() {
   };
 
   function onStartClick() {
+    setPage("Game")
     setInGame("Yes");
   }
 
   function onHomeClick() {
-    setInGame("Start");
+    setPage("Start");
   }
 
   function buttonOneClick() {
-      switch(stat) {
-        case "HP":
-          if (pokemonOne.hp > pokemonTwo.hp) {
-            setScore(score + 1);
-          } else if (pokemonOne.hp < pokemonTwo.hp){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        case "Attack":
-          if (pokemonOne.attack > pokemonTwo.attack) {
-            setScore(score + 1);
-          } else if (pokemonOne.attack < pokemonTwo.attack){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        case "Defence":
-          if (pokemonOne.defence > pokemonTwo.defence) {
-            setScore(score + 1);
-          } else if (pokemonOne.defence < pokemonTwo.defence){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        case "Special Attack":
-          if (pokemonOne.specialAttack > pokemonTwo.specialAttack) {
-            setScore(score + 1);
-          } else if (pokemonOne.specialAttack < pokemonTwo.specialAttack){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        case "Special Defence":
-          if (pokemonOne.specialDefence > pokemonTwo.specialDefence) {
-            setScore(score + 1);
-          } else if (pokemonOne.specialDefence < pokemonTwo.specialDefence){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        case "Speed":
-          if (pokemonOne.speed > pokemonTwo.speed) {
-            setScore(score + 1);
-          } else if (pokemonOne.speed < pokemonTwo.speed){
-            if (score > highScore) {
-              setBeatHighScore(true);
-              setHighScore(score);
-            } else if (score < highScore) {
-              setBeatHighScore(false);
-            }
-            setPrevScore(score);
-            setScore(0);
-            setInGame("Lose");
-          } else {
-            setTie(tie + 1);
-          }
-          break;
-        default:
-          return;
-      };
+    setPage("Info");
+    setTimeout(() => {
+      if (pokemonOneStat > pokemonTwoStat) {
+        setScore(score + 1);
+        setPage("Game");
+      } else if (pokemonOneStat < pokemonTwoStat) {
+        if (score > highScore) {
+          setBeatHighScore(true);
+          setHighScore(score);
+        } else if (score < highScore) {
+          setBeatHighScore(false);
+        }
+        setPrevScore(score);
+        setScore(0);
+        setInGame("No");
+        setPage("Lose");
+      } else {
+        setTie(tie + 1);
+        setPage("Game");
+      }
+    }, 2000);
   }
 
   function buttonTwoClick() {
-    switch(stat) {
-      case "HP":
-        if (pokemonTwo.hp > pokemonOne.hp) {
-          setScore(score + 1);
-        } else if (pokemonTwo.hp < pokemonOne.hp){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
+    setPage("Info");
+    setTimeout(() => {
+      if (pokemonTwoStat > pokemonOneStat) {
+        setScore(score + 1);
+        setPage("Game");
+      } else if (pokemonTwoStat < pokemonOneStat) {
+        if (score > highScore) {
+          setBeatHighScore(true);
+          setHighScore(score);
+        } else if (score < highScore) {
+          setBeatHighScore(false);
         }
-        break;
-      case "Attack":
-        if (pokemonTwo.attack > pokemonOne.attack) {
-          setScore(score + 1);
-        } else if (pokemonTwo.attack < pokemonOne.attack){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
-        }
-        break;
-      case "Defence":
-        if (pokemonTwo.defence > pokemonOne.defence) {
-          setScore(score + 1);
-        } else if (pokemonTwo.defence < pokemonOne.defence){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
-        }
-        break;
-      case "Special Attack":
-        if (pokemonTwo.specialAttack > pokemonOne.specialAttack) {
-          setScore(score + 1);
-        } else if (pokemonTwo.specialAttack < pokemonOne.specialAttack){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
-        }
-        break;
-      case "Special Defence":
-        if (pokemonTwo.specialDefence > pokemonOne.specialDefence) {
-          setScore(score + 1);
-        } else if (pokemonTwo.specialDefence < pokemonOne.specialDefence){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
-        }
-        break;
-      case "Speed":
-        if (pokemonTwo.speed > pokemonOne.speed) {
-          setScore(score + 1);
-        } else if (pokemonTwo.speed < pokemonOne.speed){
-          if (score > highScore) {
-            setBeatHighScore(true);
-            setHighScore(score);
-          } else if (score < highScore) {
-            setBeatHighScore(false);
-          }
-          setPrevScore(score);
-          setScore(0);
-          setInGame("Lose");
-        } else {
-          setTie(tie + 1);
-        }
-        break;
-      default:
-        return;
-    };
+        setPrevScore(score);
+        setScore(0);
+        setInGame("No");
+        setPage("Lose");
+      } else {
+        setTie(tie + 1);
+        setPage("Game");
+      }
+    }, 2000);
   }
 
-  switch(inGame) {
+  switch(page) {
     case "Start":
       gameDiv = <div>
                   <StartScreen highScore={highScore}
                                onStartClick={onStartClick} />
                 </div>
       break;
-    case "Yes":
+    case "Game":
       gameDiv = <div>
                   <div className="stat">
                     <h3>Which of these two Pokémon has the higher:</h3>
@@ -335,11 +169,35 @@ function App() {
                   <div className='Pokemon_Cards'>
                     <div className='Pokemon_One'>
                       <PokemonOne pokemonOne={pokemonOne}
+                                  buttonOneClick={buttonOneClick} />
+                    </div>
+                    <div className='Pokemon_Two'>
+                      <PokemonTwo pokemonTwo={pokemonTwo}
+                                  buttonTwoClick={buttonTwoClick} />
+                    </div>
+                  </div>
+                  <div className="Score">
+                      <h4>Score: {score}</h4>
+                  </div>
+                  <div className="HighScore">
+                    <h4>Current High Score: {highScore}</h4>
+                  </div>
+                </div>;
+      break;
+    case "Info":
+      gameDiv = <div>
+                  <div className="stat">
+                    <h3>Which of these two Pokémon has the higher:</h3>
+                    <h2>{stat}</h2>
+                  </div>
+                  <div className='Pokemon_Cards'>
+                    <div className='Pokemon_One'>
+                      <PokemonOneResult pokemonOne={pokemonOne}
                                   buttonOneClick={buttonOneClick}
                                   pokemonOneStat={pokemonOneStat} />
                     </div>
                     <div className='Pokemon_Two'>
-                      <PokemonTwo pokemonTwo={pokemonTwo}
+                      <PokemonTwoResult pokemonTwo={pokemonTwo}
                                   buttonTwoClick={buttonTwoClick}
                                   pokemonTwoStat={pokemonTwoStat} />
                     </div>

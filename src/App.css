@@ -201,8 +201,8 @@ h3 {
   width: 100%;
   color: rgb(255, 255, 255);
   font-family: 'Poppins', sans-serif;
-  text-align: center;
-  justify-content: center;
+  text-align: left;
+  justify-content: left;
   align-content: center;
   padding-top: 15px;
 }

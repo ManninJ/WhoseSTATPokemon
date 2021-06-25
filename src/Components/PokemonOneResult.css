@@ -1,0 +1,24 @@
+.PokemonOne {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.Card_Image {
+    margin-top: -50px;
+    margin-bottom: -50px;
+}
+
+.PokemonOne_Stat {
+    font-size: 4rem;
+}
+
+.Card_Name {
+    margin-bottom: 50px;
+}

@@ -1,4 +1,12 @@
 .Card_Image {
     margin-bottom: -50px;
-    margin-top: -50px;
+    margin-top: 50px;
+}
+
+.Card_Name {
+    margin-bottom: 50px;
+}
+
+.Stat_Placeholder {
+    font-size: 4rem;
 }
