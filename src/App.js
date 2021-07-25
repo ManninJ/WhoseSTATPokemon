@@ -27,6 +27,8 @@ function App() {
   let pokemonTwoStat = null;
 
   let gameDiv = null;
+  let showHighScore = null;
+  let showCredits = null;
 
   useEffect(() => {
     setRandomPokemonOne(Math.floor(Math.random() * 898) + 1);
@@ -177,10 +179,7 @@ function App() {
                     </div>
                   </div>
                   <div className="Score">
-                      <h4>Score: {score}</h4>
-                  </div>
-                  <div className="HighScore">
-                    <h4>Current High Score: {highScore}</h4>
+                    <h4>Score: {score}</h4>
                   </div>
                 </div>;
       break;
@@ -203,10 +202,7 @@ function App() {
                     </div>
                   </div>
                   <div className="Score">
-                      <h4>Score: {score}</h4>
-                  </div>
-                  <div className="HighScore">
-                    <h4>Current High Score: {highScore}</h4>
+                    <h4>Score: {score}</h4>
                   </div>
                 </div>;
       break;
@@ -221,16 +217,31 @@ function App() {
       break;
   }
 
+  if (page === "Game" || page === "Info") {
+    showHighScore = <h4>High Score: {highScore}</h4>;
+  }
+
+  if (page === "Start" || page === "Lose") {
+    showCredits = <p>Made by Jason Mannin / KryllYGO <br /> <br />
+    This is a purely educational project. <br />
+    Not affiliated with Pokémon in any way.</p>;
+  }
+
   return (
-    <div>
+    <div className="Content_Body">
       <div className="header">
         <h1>Who's STAT Pokémon?!</h1>
       </div>
-      {gameDiv}
-      <div className="Credits">
-        <p>Made by Jason Mannin / KryllYGO <br /> <br />
-        This is a purely educational project. <br />
-        Not affiliated with Pokémon in any way.</p>
+      <div className="Content">
+        {gameDiv}
+      </div>
+      <div className="Bottom">
+        <div className="Credits">
+          {showCredits}
+        </div>
+        <div className="HighScore">
+          {showHighScore}
+        </div>
       </div>
     </div>
   );

@@ -22,3 +22,69 @@
 .Card_Name {
     margin-bottom: 50px;
 }
+
+@media (orientation: landscape) and (max-width: 568px) {
+    .Card_Name {
+        margin-bottom: 35px;
+    }
+    .Card_Image {
+        margin-bottom: -20px;
+    }
+    .PokemonTwo_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonTwo {
+        font-size: 1.25rem;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 569px) and (max-width: 823px) {
+    .Card_Name {
+        margin-bottom: 45px;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+    .PokemonTwo_Stat {
+        font-size: 2rem;
+    }
+    .PokemonTwo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .PokemonTwo_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonTwo {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 321px) and (max-width: 375px) {
+    .PokemonTwo_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonTwo {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 376px) and (max-width: 449px) {
+    .PokemonTwo_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonTwo {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}

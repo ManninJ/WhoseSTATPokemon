@@ -1,6 +1,6 @@
 .Card_Image {
     margin-bottom: -50px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .Card_Name {
@@ -9,4 +9,49 @@
 
 .Stat_Placeholder {
     font-size: 4rem;
+}
+
+@media (orientation: landscape) and (max-width: 568px) {
+    .Card_Name {
+        margin-bottom: 25px;
+    }
+    .Stat_Placeholder {
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 569px) and (max-width: 823px) {
+    .Card_Name {
+        margin-bottom: 25px;
+    }
+    .Stat_Placeholder {
+        font-size: 2rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .Stat_Placeholder {
+        font-size: 2rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 321px) and (max-width: 375px) {
+    .Stat_Placeholder {
+        font-size: 2rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 376px) and (max-width: 449px) {
+  .Stat_Placeholder {
+      font-size: 2rem;
+  }
+  .Card_Image {
+      margin-bottom: -10px;
+  }
 }

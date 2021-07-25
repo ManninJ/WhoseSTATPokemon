@@ -10,7 +10,7 @@ export default function PokemonOneResult({ pokemonOne, pokemonOneStat, buttonOne
                 </div>
                 <div className="PokemonOne_Info">
                     <div className="Card_Image">
-                        <img src={pokemonOne.sprite} alt="" width="400px"/>
+                        <img src={pokemonOne.sprite} alt="" className="pokeOneSprite"/>
                     </div>
                     <AnimatedNumber className="PokemonOne_Stat" 
                                     value={pokemonOneStat}

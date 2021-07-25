@@ -47,7 +47,7 @@
     mix-blend-mode:screen;
 }
 
-h4 {
+.LoseScreen h4 {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -58,10 +58,179 @@ h4 {
 }
 
 .Buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: -150px;
 }
 
 .Menu {
     margin-top: 175px;
     margin-bottom: -50px;
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .Menu h3 {
+        margin-top: -150px;
+        margin-bottom: 20px;
+    }
+    .LoseScreen h2 {
+        font-size: 4rem;
+        margin-top: -75px;
+        margin-bottom: -50px;
+    }
+    .Menu {
+        margin-bottom: -80px;
+    }
+    p {
+        display: none;
+    }
+    .LoseScreen h4 {
+        font-size: 25px;
+    }
+    .StartButton {
+        font-size: 20px;
+        width: 110px;
+        height: 45px;
+    }
+    .HomeButton {
+        font-size: 20px;
+        width: 110px;
+        height: 45px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 321px) and (max-width:375px) {
+    .LoseScreen h2 {
+        font-size: 4rem;
+        margin-bottom: -25px;
+    }
+    .LoseScreen h4 {
+        margin-top: -20px;
+    }
+    .Menu h3 {
+        margin-top: -75px;
+        margin-bottom: 15px;
+    }
+    p {
+        display: none;
+    }
+    .StartButton {
+        font-size: 22.5px;
+        width: 125px;
+        height: 50px;
+    }
+    .HomeButton {
+        font-size: 22.5px;
+        width: 125px;
+        height: 50px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 376px) and (max-width:450px) {
+    .Menu h3 {
+        margin-top: -150px;
+    }
+    .LoseScreen h2 {
+        font-size: 4rem;
+    }
+    p {
+        display: none;
+    }
+    .StartButton {
+        font-size: 25px;
+        width: 150px;
+        height: 60px;
+    }
+    .HomeButton {
+        font-size: 25px;
+        width: 150px;
+        height: 60px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 451px) and (max-width:768px) {
+    .LoseScreen h3 {
+        font-size: 1.5rem;
+    }
+    .Menu h3 {
+        margin-top: -150px;
+    }
+    .StartButton {
+        font-size: 30px;
+        width: 250px;
+        height: 100px;
+    }
+    .HomeButton {
+        font-size: 30px;
+        width: 250px;
+        height: 100px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 769px) and (max-width:1024px) {
+    .Menu h3 {
+        margin-top: 150px;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 568px) {
+    p {
+        display: none;
+    }
+    .LoseScreen h2 {
+        font-size: 4rem;
+    }
+    .LoseScreen h4 {
+        margin-top: -55px;
+    }
+    .Menu h3 {
+        margin-top: -165px;
+        margin-bottom: -10px;
+    }
+    .StartButton {
+        font-size: 20px;
+        width: 110px;
+        height: 45px;
+    }
+    .HomeButton {
+        font-size: 20px;
+        width: 110px;
+        height: 45px;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 569px) and (max-width:823px) {
+    p {
+        display: none;
+    }
+    .LoseScreen h2 {
+        font-size: 4rem;
+    }
+    .LoseScreen h4 {
+        margin-top: -55px;
+    }
+    .Menu h3 {
+        margin-top: -175px;
+    }
+    .StartButton {
+        font-size: 30px;
+        width: 200px;
+        height: 80px;
+    }
+    .HomeButton {
+        font-size: 30px;
+        width: 200px;
+        height: 80px;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 824px) and (max-width:1024px) {
+    .LoseScreen h2 {
+        font-size: 4rem;
+    }
+    .Menu h3 {
+        margin-top: -100px;
+    }
 }

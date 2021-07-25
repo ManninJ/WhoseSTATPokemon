@@ -10,7 +10,7 @@ export default function PokemonOne({ pokemonOne, pokemonOneStat, showStatOne, bu
                 </div>
                 <div className="PokemonOne_Info">
                     <div className="Card_Image">
-                        <img src={pokemonOne.sprite} alt="" width="400px"/>
+                        <img src={pokemonOne.sprite} alt="" className="pokeOneSprite"/>
                     </div>
                 </div>
                 <div className="Stat_Placeholder">

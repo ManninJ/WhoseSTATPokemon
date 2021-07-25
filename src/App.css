@@ -5,55 +5,27 @@
   width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 html {
-  height: 100%;
+  height: 50%;
 }
 
 body {
+  display: flex;
   height: 100%;
   padding: 0% 5% 0% 5%;
   background-image: url("./images/BG3.png");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   color: rgb(0, 0, 0);
+}
+
+.Content_Body {
+  display: flex;
+  flex-direction: column;
 }
 
 .Score h4{
@@ -72,6 +44,7 @@ body {
   justify-content: center;
   padding-top: 15px;
   margin-bottom: -40px;
+  width: 100%;
 }
 
 .Pokemon_One {
@@ -88,7 +61,11 @@ body {
   transition: background-image ;
 }
 
-.Pokemon_One:hover {
+.pokeOneSprite {
+  width: 400px;
+}
+
+.Pokemon_One:hover, .Pokemon_One:active {
   background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.9), rgba(143,118,255,0.7));
   transform: scale(1.05);
   transition: .3s;
@@ -129,7 +106,11 @@ body {
   background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.8), rgba(143,118,255,0.6));
 }
 
-.Pokemon_Two:hover {
+.pokeTwoSprite {
+  width: 400px;
+}
+
+.Pokemon_Two:hover, .Pokemon_Two:active {
   background-image: linear-gradient(to bottom right, rgba(255, 147, 59, 0.9), rgba(143,118,255,0.7));
   transform: scale(1.05);
   transition: .3s;
@@ -193,22 +174,259 @@ h3 {
   color: rgb(255, 255, 255);
 }
 
+.Bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .Credits {
   display: flex;
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
   color: rgb(255, 255, 255);
   font-family: 'Poppins', sans-serif;
   text-align: left;
   justify-content: left;
-  align-content: center;
-  padding-top: 15px;
 }
 
 .HighScore {
+  display: flex;
   position: absolute;
-  bottom: 0px;
-  right: 40px;
+  right: 0;
+  bottom: 0;
+}
+
+.HighScore h4 {
+  font-size: 2rem;
+}
+
+@media (orientation: landscape) and (max-width: 568px) {
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    padding-bottom: 15px;
+    margin-top: 10px;
+  }
+  p {
+    font-size: 0.4rem;
+    display: none;
+  }
+  .HighScore h4 {
+    font-size: 1.25rem;
+  }
+  .Pokemon_One_Button {
+    font-size: 1.5rem;
+  }
+  .Pokemon_Two_Button {
+    font-size: 1.5rem;
+  }
+  h1 {
+    display: none;
+  }
+  .HighScore {
+    bottom: -20px;
+  }
+  .pokeOneSprite {
+    width: 125px;
+  }
+  .pokeTwoSprite {
+    width: 125px;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 569px) and (max-width: 823px) {
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    padding-bottom: 15px;
+    margin-top: 10px;
+  }
+  p {
+    font-size: 0.5rem;
+  }
+  .Pokemon_One_Button {
+    font-size: 1.25rem;
+  }
+  .Pokemon_Two_Button {
+    font-size: 1.25rem;
+  }
+  h1 {
+    display: none;
+  }
+  .HighScore {
+    bottom: -20px;
+  }
+  .HighScore h4 {
+    font-size: 1.5rem;
+  }
+  .pokeOneSprite {
+    width: 150px;
+  }
+  .pokeTwoSprite {
+    width: 150px;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 824px) and (max-width: 1024px) {
+  h1, h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  .pokeOneSprite {
+    width: 300px;
+  }
+  .pokeTwoSprite {
+    width: 300px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 5%;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .Score h4 {
+    font-size: 30px;
+  }
+  .HighScore h4 {
+    font-size: 1.25rem;
+  }
+  .pokeOneSprite {
+    width: 120px;
+  }
+  .pokeTwoSprite {
+    width: 120px;
+  }
+  .Credits {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 321px) and (max-width: 375px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .Score h4 {
+    font-size: 30px;
+  }
+  .HighScore h4 {
+    font-size: 1.25rem;
+  }
+  .pokeOneSprite {
+    width: 125px;
+  }
+  .pokeTwoSprite {
+    width: 125px;
+  }
+  .Credits {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 376px) and (max-width: 449px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  .Score h4 {
+    font-size: 40px;
+  }
+  .HighScore h4 {
+    font-size: 1.25rem;
+  }
+  .Pokemon_Cards {
+    margin-top: 25px;
+  }
+  .pokeOneSprite {
+    width: 150px;
+  }
+  .pokeTwoSprite {
+    width: 150px;
+  }
+  .Credits {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 450px) and (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h3 {
+    margin-bottom: 50px;
+  }
+  .Score h4 {
+    font-size: 40px;
+  }
+  .Pokemon_Cards {
+    margin-top: 25px;
+  }
+  .pokeOneSprite {
+    width: 300px;
+  }
+  .pokeTwoSprite {
+    width: 300px;
+  }
+  .Credits {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 769px) and (max-width: 1024px) {
+  h2 {
+    font-size: 6rem;
+  }
+  .Score h4 {
+    font-size: 40px;
+  }
+  .Pokemon_Cards {
+    margin-top: 100px;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .Credits {
+    text-align: center;
+    justify-content: center;
+  }
 }

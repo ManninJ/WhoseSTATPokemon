@@ -22,3 +22,69 @@
 .Card_Name {
     margin-bottom: 50px;
 }
+
+@media (orientation: landscape) and (max-width: 568px) {
+    .Card_Name {
+        margin-bottom: 35px;
+    }
+    .Card_Image {
+        margin-bottom: -20px;
+    }
+    .PokemonOne_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonOne {
+        font-size: 1.25rem;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 569px) and (max-width: 823px) {
+    .Card_Name {
+        margin-bottom: 45px;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+    .PokemonOne_Stat {
+        font-size: 2rem;
+    }
+    .PokemonOne {
+        font-size: 1.5rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 320px) {
+    .PokemonOne_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonOne {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 321px) and (max-width: 375px) {
+    .PokemonOne_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonOne {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 376px) and (max-width: 449px) {
+    .PokemonOne_Stat {
+        font-size: 1.5rem;
+    }
+    .PokemonOne {
+        font-size: 1.25rem;
+    }
+    .Card_Image {
+        margin-bottom: -10px;
+    }
+  }

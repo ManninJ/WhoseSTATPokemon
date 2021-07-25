@@ -10,7 +10,7 @@ export default function PokemonTwoResult({ pokemonTwo, pokemonTwoStat, showStatT
                 </div>
                 <div className="PokemonTwo_Info">
                     <div className="Card_Image">
-                        <img src={pokemonTwo.sprite} alt="" width="400px"/>
+                        <img src={pokemonTwo.sprite} alt="" className="pokeTwoSprite"/>
                     </div>
                     <AnimatedNumber className="PokemonTwo_Stat" 
                                     value={pokemonTwoStat}
