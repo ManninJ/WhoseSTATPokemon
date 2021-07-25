@@ -202,6 +202,9 @@ h3 {
 
 .HighScore h4 {
   font-size: 2rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
 }
 
 @media (orientation: landscape) and (max-width: 568px) {
