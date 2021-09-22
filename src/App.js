@@ -222,7 +222,7 @@ function App() {
   }
 
   if (page === "Start" || page === "Lose") {
-    showCredits = <p>Made by Jason Mannin / KryllYGO <br /> <br />
+    showCredits = <p>Made by Jason Mannin <br /> <br />
     This is a purely educational project. <br />
     Not affiliated with Pokémon in any way.</p>;
   }
